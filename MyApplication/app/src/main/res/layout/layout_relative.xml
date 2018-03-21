@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <Button
+            android:id="@+id/center_btn"
+            android:tag="btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮1"
+            android:textSize="34dp"
+            android:layout_centerInParent="true"/>
+    <Button
+            android:id="@+id/btn2"
+            android:tag="btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮2"
+            android:textSize="34dp"
+            android:layout_alignLeft="@id/center_btn"
+            android:layout_above="@id/center_btn"
+            android:layout_marginBottom="10dp" />
+
+    <Button
+            android:id="@+id/btn3"
+            android:tag="btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮3"
+            android:textSize="34dp"
+            android:layout_alignBottom="@id/center_btn"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="请输入文字"
+            android:textSize="34dp"
+            android:textStyle="bold"
+            android:textColor="#f00"
+            android:layout_below="@id/btn3"
+            android:layout_marginTop="20dp"
+            android:inputType="numberPassword"
+        />
+</RelativeLayout>

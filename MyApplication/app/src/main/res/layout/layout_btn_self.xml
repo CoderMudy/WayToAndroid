@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+    <EditText
+            android:id="@+id/edite_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_btn"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"/>
+
+    <TextView
+            android:id="@+id/show_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/back_btn"/>
+
+    <!--<DatePicker-->
+            <!--android:id="@+id/datepicker"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+    <!--</DatePicker>-->
+
+    <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back_btn_sel"/>
+
+</LinearLayout>
