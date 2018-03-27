@@ -1,9 +1,7 @@
 package com.mudy.customview01;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -26,9 +24,28 @@ public class CanvasView extends View{
         Paint paint = new Paint();
 
         //画线
-//        canvas.drawLine(0,10,100,100,paint);
+        //canvas.drawLine(0,10,100,100,paint);
 
-        canvas.drawText("hahaha",12,12,paint);
+        //文本
+        paint.setColor(Color.RED);
+        paint.setTextSize(30);//设置绘制文本时候的文字大小
+        canvas.drawText("hahaha",100,100,paint);
 
+        //画点
+        paint.setStrokeWidth(5);
+        canvas.drawPoint(150,150,paint);
+
+        //画图片
+        // 1 将项目中已有的图片转为bitmap  mipmap-hdpi/ic_launcher.png
+        //Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+        //2 完全自己创建一个bitmap
+        Bitmap bitmap = Bitmap.createBitmap(100,100, Bitmap.Config.ALPHA_8);
+        for(int i = 0;i<100;i++){
+            for (int j = 0;i<100;j++){
+                bitmap.setPixel(i,j,Color.RED);
+            }
+        }
+
+        canvas.drawBitmap(bitmap,150,200,paint);
     }
 }
