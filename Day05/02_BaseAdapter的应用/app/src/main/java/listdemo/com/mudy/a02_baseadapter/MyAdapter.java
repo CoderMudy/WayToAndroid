@@ -45,16 +45,21 @@ public class MyAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Log.v("mudy","convertView=" + convertView + "  position" + position);
+        if (convertView == null){
+            //LayoutInflater 布局充气的一个类，就是可以将一个布局转换成一个view
+            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+            View view = layoutInflater.inflate(android.R.layout.simple_list_item_checked,null);//如果只有一个textview的话，可以使用安卓提供的这个控件
 
-        //LayoutInflater 布局充气的一个类，就是可以将一个布局转换成一个view
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(android.R.layout.simple_list_item_checked,null);//如果只有一个textview的话，可以使用安卓提供的这个控件
-        TextView tv = (TextView)view.findViewById(android.R.id.text1);
+            convertView = view;
+        }else {
+
+        }
+
+        TextView tv = (TextView)convertView.findViewById(android.R.id.text1);
         tv.setText(mDatas.get(position));
-
         //TextView tv2 = (TextView)view.findViewById(android.R.id.text2);
         //tv2.setText(mDatas.get(position));
-        return view;
+        return convertView;
     }
 }
 
