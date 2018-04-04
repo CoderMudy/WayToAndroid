@@ -12,6 +12,13 @@
         tools:context="fragment.com.mudy.fragment.MainActivity">
 
 
+    <!--<fragment-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:name="fragment.com.mudy.fragment.FragmentLog"-->
+            <!--android:tag="16"-->
+    <!--/>-->
+
 
     <FrameLayout
             android:layout_width="match_parent"
