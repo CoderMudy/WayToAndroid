@@ -15,20 +15,17 @@ public class MainActivity extends AppCompatActivity {
         FirstFragment first = new FirstFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putString("title","hello fragment");
+        bundle.putString("title","fragment");
+
         first.setArguments(bundle);
 
-        //获取3.0+
         FragmentManager fm = getFragmentManager();
-        FragmentTransaction transaction =  fm.beginTransaction();
+        FragmentTransaction transaction = fm.beginTransaction();
         transaction.add(R.id.content,first,"first");
         transaction.commit();
 
     }
-
 }
-
-
 /**  Activity的生命周期
  * onCreate
  * onStart
@@ -39,7 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 /** fragment的生命周期
- *
+ * add
+ * onAttached
+ * onCreate
+ * onCreateView 产生UI
+ * onActivityCreated 宿主activity的onCreate方法已经执行完成
+ * onStart()
+ * onTrsume()
+ * Fragment is active
  *
  *
  *
