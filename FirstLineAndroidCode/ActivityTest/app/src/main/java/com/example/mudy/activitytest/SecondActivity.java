@@ -29,4 +29,14 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    //处理点击返回键
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        Intent intent = new Intent();
+        intent.putExtra("data_return","hello this is data from backbtn click");
+        setResult(RESULT_OK,intent);
+        finish();
+    }
 }
