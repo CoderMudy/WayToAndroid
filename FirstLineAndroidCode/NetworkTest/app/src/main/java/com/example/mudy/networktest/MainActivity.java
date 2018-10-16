@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,16 +50,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     OkHttpClient client = new OkHttpClient();
                     Request requset = new Request.Builder()
-                            .url("http://www.baidu.com")
+                            .url("http://10.0.2.2/get_data.json")//这里10.0.2.2表示电脑本机127.0.0.1
                             .build();
                     Response response = client.newCall(requset).execute();
                     String responseData = response.body().string();
-                    Log.d("NetWork", responseData);
-                    showResponse(responseData);
+//                    Log.d("NetWork", responseData);
+//                    showResponse(responseData);
+                    parseJSONWithJSONObject(responseData);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
+
+
         }).start();
     }
 
@@ -111,6 +117,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+    private void parseJSONWithJSONObject(String jsonData) {
+        try{
+            Log.d("NetWork", "parseJSONWithJSONObject: "+jsonData);
+            JSONArray jsonArray = new JSONArray(jsonData);
+            for (int i = 0;i<jsonArray.length();i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String version = jsonObject.getString("version");
+                Log.d("NetWork", "id is "+id);
+                Log.d("NetWork", "name is "+name);
+                Log.d("NetWork", "version is "+version);
 
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 }
