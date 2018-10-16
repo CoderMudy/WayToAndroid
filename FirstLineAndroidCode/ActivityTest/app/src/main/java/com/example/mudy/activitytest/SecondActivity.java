@@ -22,10 +22,13 @@ public class SecondActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent();
-                intent.putExtra("data_return","hello this is data from second");
-                setResult(RESULT_OK,intent);
-                finish();
+                Log.d("First", "onClick: dede");
+//                Intent intent = new Intent();
+//                intent.putExtra("data_return","hello this is data from second");
+//                setResult(RESULT_OK,intent);
+//                finish();
+                Intent intent = new Intent(SecondActivity.this,FirstActivity.class);
+                startActivity(intent);
             }
         });
     }

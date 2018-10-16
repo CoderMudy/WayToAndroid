@@ -17,7 +17,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
-
+        Log.d("FirstActivity", this.toString());
         Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,8 +51,12 @@ public class FirstActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 ///从下一个界面获取数据
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivityForResult(intent,1);
+
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivityForResult(intent,1);
+                startActivity(intent);
+//                Log.d("First", "onClick: ");
 
             }
         });
