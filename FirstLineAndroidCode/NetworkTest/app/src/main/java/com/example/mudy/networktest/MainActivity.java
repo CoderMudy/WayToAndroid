@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,6 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -56,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String responseData = response.body().string();
 //                    Log.d("NetWork", responseData);
 //                    showResponse(responseData);
-                    parseJSONWithJSONObject(responseData);
+//                    parseJSONWithJSONObject(responseData);
+                    parseJSONWithGSON(responseData);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -64,6 +69,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }).start();
+    }
+
+    private void parseJSONWithGSON(String jsonData) {
+        Gson gson = new Gson();
+        Log.d("NetWork", "parseJSONWithGSON: "+jsonData);
+        List<App> appList = gson.fromJson(jsonData,new TypeToken<List<App>>(){}.getType());
+//        Type collectionType = new TypeToken<List<App>>(){}.getType();
+//        List<App> appList = gson.fromJson(jsonData, collectionType);
+        for (App app : appList){
+            Log.d("NetWork", "id is "+app.getId());
+            Log.d("NetWork", "name is "+app.getName());
+            Log.d("NetWork", "version is "+app.getVersion());
+        }
     }
 
     private void sendRequstWithHttpURLConnection(){
