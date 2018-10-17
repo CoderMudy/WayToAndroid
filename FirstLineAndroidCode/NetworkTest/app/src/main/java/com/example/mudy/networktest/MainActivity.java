@@ -1,5 +1,6 @@
 package com.example.mudy.networktest;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.hide();
+        }
+
         Button button = (Button)findViewById(R.id.send_request);
         responseText = (TextView)findViewById(R.id.response_text);
         button.setOnClickListener(this);
