@@ -3,7 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/title"></include>
+    <!--<include layout="@layout/title"></include>-->
+
+    <com.example.mudy.networktest.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.example.mudy.networktest.TitleLayout>
+
     <Button
         android:id="@+id/send_request"
         android:layout_width="match_parent"
